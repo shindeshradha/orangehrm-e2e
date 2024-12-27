@@ -29,6 +29,9 @@ public class LoginPage {
     @FindBy(xpath = "//p[contains(@class, 'oxd-alert-content-text')]")
     private WebElement wrongCredentialsStatusElement;
 
+    @FindBy(xpath = "//p[contains(@class, 'orangehrm-login-forgot-header')]")
+    private WebElement forgotPasswordLink;
+
     private WebDriverWait wait;
 
     public LoginPage() {
@@ -64,6 +67,14 @@ public class LoginPage {
     public void clickLoginButton() {
         wait.until(ExpectedConditions.elementToBeClickable(loginButton));
         loginButton.click();
+    }
+
+        /**
+     * Method to click the forgot password link
+     */
+    public void clickForgotPassword() {
+        wait.until(ExpectedConditions.elementToBeClickable(forgotPasswordLink));
+        forgotPasswordLink.click();
     }
 
     /**
