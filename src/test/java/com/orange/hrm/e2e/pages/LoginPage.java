@@ -1,6 +1,7 @@
 package com.orange.hrm.e2e.pages;
 
 import lombok.extern.slf4j.Slf4j;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -29,10 +30,7 @@ public class LoginPage {
     @FindBy(xpath = "//p[contains(@class, 'oxd-alert-content-text')]")
     private WebElement wrongCredentialsStatusElement;
 
-    @FindBy(xpath = "//p[contains(@class, 'orangehrm-login-forgot-header')]")
-    private WebElement forgotPasswordLink;
-
-    private WebDriverWait wait;
+    private final WebDriverWait wait;
 
     public LoginPage() {
         PageFactory.initElements(getDriver(), this);
@@ -69,13 +67,6 @@ public class LoginPage {
         loginButton.click();
     }
 
-        /**
-     * Method to click the forgot password link
-     */
-    public void clickForgotPassword() {
-        wait.until(ExpectedConditions.elementToBeClickable(forgotPasswordLink));
-        forgotPasswordLink.click();
-    }
 
     /**
      * Method to wait for the login page to load
@@ -97,5 +88,10 @@ public class LoginPage {
             log.error("Wrong credentials status element not displayed: {}", e.getMessage());
             return false;
         }
+    }
+
+    public boolean isPasswordFieldSecure() {
+        WebElement passwordField = getDriver().findElement(By.name("password"));
+        return passwordField.getAttribute("type").equals("password");
     }
 }
