@@ -29,6 +29,15 @@ public class LoginStepDefinitions {
         loginPage.waitForLoginPageToLoad();
     }
 
+    @Given("I login to OrangeHRM as an admin user")
+    public void iLoginAsAdmin(){
+        this.iNavigateToTheLoginPage();
+        loginPage.enterUsername("Admin");
+        loginPage.enterPassword("admin123");
+        this.iClickTheLoginButton();
+    }
+
+
     @When("I enter valid credentials {string} and {string}")
     public void iEnterValidCredentials(String username, String password) {
         loginPage.enterUsername(username);
@@ -46,11 +55,6 @@ public class LoginStepDefinitions {
         loginPage.clickLoginButton();
     }
 
-
-    @Then("I should be redirected to the dashboard")
-    public void iShouldBeRedirectedToTheDashboard() {
-        Assert.assertTrue("Dashboard did not load successfully!", /* Add dashboard verification logic here */ true);
-    }
 
     @Then("I should see an error message {string}")
     public void iShouldSeeAnErrorMessage(String expectedMessage) {
