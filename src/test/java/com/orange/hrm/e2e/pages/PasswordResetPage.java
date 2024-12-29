@@ -1,6 +1,5 @@
 package com.orange.hrm.e2e.pages;
 
-import io.cucumber.java.en.Given;
 import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
