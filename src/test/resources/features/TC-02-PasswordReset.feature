@@ -1,4 +1,4 @@
-Feature: Login functionality on OrangeHRM
+Feature: Password Reset on OrangeHRM
   As a user
   I want to reset the password
   So that I can login with my new password

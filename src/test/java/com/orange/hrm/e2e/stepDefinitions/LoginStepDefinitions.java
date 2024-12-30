@@ -30,13 +30,12 @@ public class LoginStepDefinitions {
     }
 
     @Given("I login to OrangeHRM as an admin user")
-    public void iLoginAsAdmin(){
+    public void iLoginAsAdmin() {
         this.iNavigateToTheLoginPage();
         loginPage.enterUsername("Admin");
         loginPage.enterPassword("admin123");
         this.iClickTheLoginButton();
     }
-
 
     @When("I enter valid credentials {string} and {string}")
     public void iEnterValidCredentials(String username, String password) {
@@ -54,7 +53,6 @@ public class LoginStepDefinitions {
     public void iClickTheLoginButton() {
         loginPage.clickLoginButton();
     }
-
 
     @Then("I should see an error message {string}")
     public void iShouldSeeAnErrorMessage(String expectedMessage) {
